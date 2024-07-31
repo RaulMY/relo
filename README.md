@@ -1,30 +1,74 @@
-# React + TypeScript + Vite
+# Image Annotation Analyzer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React project that provides a user interface to annotate images given a list of categories.
 
-Currently, two official plugins are available:
+## Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project uses yarn. If you don't have yarn installed, you will have to first run:
 
-## Expanding the ESLint configuration
+```
+npm install --global yarn
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Which assumes you have npm as well, which comes with [Node](http://nodejs.org/).
+
+The project was created using vite.
+
+## Installing
+
+```
+$ git clone https://github.com/RaulMY/relo.git
+```
+
+Then move down to the new folder that was just created
+
+```
+$ cd relo
+```
+
+Once you are in that folder, you can run the following command:
+```
+$ yarn install
+```
+
+## Running the project
+
+To start the project, simply run this command in your terminal, and then go to [localhost:5173](http://localhost:5173/) on your browser:
+
+```
+$ yarn dev
+```
+
+## File Structure
+
+This is a relatively small project, so the file structure is pretty straight forward.
+
+```
+src
+└── App.tsx
+└── main.tsx
+└── components
+    └── CategoryForm.tsx
+    └── ImageCanvas.tsx
+    └── ImageQueue.tsx
+└── utils
+    └── API.tsx
+```
+
+Inside our source (src) folder you can find some of the usual files for a React application, such as App.tsx, and main.tsx.
+
+You will also find the components folder, where, as the name suggests, the React components created for this project are stored. 
+
+There are three components for this project:
+- CategoryForm: A component that handles the search and selection of a category
+- ImageCanvas: A component wrapped around a canvas that handles displaying the image, as well as annotating it.
+- ImageQueue: A simple UI component with no internal logic that displays the list of the next 10 images in the queue.
+
+## Styling
+
+This project uses Tailwind out of the box to style its components.
+
+## State Management
+
+Given that this project has a very shallow component tree no external library for state management was deemed necessary. If the project were to grow, this could be reconsidered.
